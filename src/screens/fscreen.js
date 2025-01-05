@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {Image, SafeAreaView, TouchableOpacity, Text, View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
-import images from '../assets/image.js';
+import images from '../assets/images.js';
 import icones from '../assets/icon.js';
 import Welcome from './welcome.js';
 
