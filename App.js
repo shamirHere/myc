@@ -1,23 +1,17 @@
-import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { SafeAreaView } from 'react-native';
-import Fscreen from './src/screens/fscreen.js';
-import Welcome from './src/screens/welcome.js';
-
-const Stack = createNativeStackNavigator();
+import React from 'react'
+import { NavigationContainer } from '@react-navigation/native'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { Welcome } from './src/screens/auth'
 
 const App = () => {
+  const Stack = createNativeStackNavigator(); 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <NavigationContainer>
-        <Stack.Navigator initialRouteName="Fscreen" screenOptions={{headerShown: false}}>
-          <Stack.Screen name="Fscreen" component={Fscreen} />
-          <Stack.Screen name="welcome" component={Welcome} />
-        </Stack.Navigator>
-        </NavigationContainer>
-    </SafeAreaView>
-  );
-};
+    <NavigationContainer>            
+      <Stack.Navigator screenOptions={{headerShown: false}}>
+        <Stack.Screen name='Welcome' component={Welcome}/>
+      </Stack.Navigator>
+    </NavigationContainer>
+  )
+}
 
-export default App;
+export default App; 

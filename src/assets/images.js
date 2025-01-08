@@ -1,8 +1,4 @@
-const images ={
-  first_image: require("./images/fimg.jpg"),
-  second_img: require("./images/simg.jpg"),
-  Wel:require('./images/welcome.jpg')
+const images = {
 
-};
-
-export default images
+} ; 
+export default images; 
