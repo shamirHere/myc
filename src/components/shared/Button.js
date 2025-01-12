@@ -10,7 +10,7 @@ const CustomButton = ({
   borderColor = "#FFC107", // Default yellow border
   fontSize = 16,
   isOutline = false, // To render an outline button
-  customStyles = {},
+  buttonStyle = {},
 }) => {
   return (
     <TouchableOpacity
@@ -24,7 +24,7 @@ const CustomButton = ({
           borderRadius: 10,
           paddingVertical: 15,
         },
-        customStyles,
+        buttonStyle,
       ]}
     >
       <Text

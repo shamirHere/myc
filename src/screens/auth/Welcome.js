@@ -16,7 +16,7 @@ const Welcome = () => {
 
   return (
     <SafeAreaView style={[styles.pdh16]}>
-    <Button label={"Continue"}/>
+    <Button label={"Continue"} onPress={() => navigation.navigate("AvailableCar")}/>
     <InputText placeholder={"Enter your name"} secureTextEntry={true} />
   </SafeAreaView>
 );
