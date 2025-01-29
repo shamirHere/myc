@@ -1,56 +1,55 @@
-import React from "react";
-import { TouchableOpacity, Text, StyleSheet } from "react-native";
+import React from 'react';
+import { TouchableOpacity, Text,  View, Image } from 'react-native';
+import icons from '../../assets/icons';
+import styles from '../../assets/styles';
+import colors from '../../assets/colors';
 
-const CustomButton = ({
-    label, 
-  onPress,
-  backgroundColor = "#FFC107", // Default yellow background
-  textColor = "#FFFFFF", // Default white text
-  borderWidth = 0,
-  borderColor = "#FFC107", // Default yellow border
-  fontSize = 16,
-  isOutline = false, // To render an outline button
-  customStyles = {},
-}) => {
+const Button = ({ label, onPress, buttonStyle, disabled, showIcon }) => {
   return (
     <TouchableOpacity
       onPress={onPress}
       style={[
-        styles.button,
         {
-          backgroundColor: isOutline ? "transparent" : backgroundColor,
-          borderColor: isOutline ? borderColor : "transparent",
-          borderWidth: isOutline ? borderWidth : 0,
-          borderRadius: 10,
-          paddingVertical: 15,
+          backgroundColor: colors.primary,
+          flexDirection: 'row',
+          alignItems: 'center',
+          justifyContent: 'center',
+          borderRadius: showIcon ? 8 : 25,
+          opacity: disabled ? 0.6 : 1,
         },
-        customStyles,
+        styles.pdh20,
+        styles.mv12,
+        showIcon ? styles.pdv4  : styles.pdv8 ,
+        buttonStyle,
       ]}
+      activeOpacity={0.8}
+      disabled={disabled}
     >
-      <Text
-        style={[
-          styles.text,
-          {
-            color: isOutline ? borderColor : textColor,
-            fontSize: fontSize,
-          },
-        ]}
+      <View
+        style={{
+          flexDirection: 'row',
+          alignItems: 'center',
+          justifyContent: showIcon ? 'space-between' : 'center',
+          width: showIcon ? '80%' : '100%',
+          paddingVertical: 6,
+        }}
       >
-      {label}
-      </Text>
+        <Text
+          style={[
+            styles.ts18,
+            styles.fwBold,
+            styles.mr12,
+            { color: colors.white, textAlign: 'center' },
+          ]}
+        >
+          {label}
+        </Text>
+        {showIcon && (
+          <Image source={icons.arrow_right} style={[styles.icon36]} />
+        )}
+      </View>
     </TouchableOpacity>
   );
 };
 
-const styles = StyleSheet.create({
-  button: {
-    justifyContent: "center",
-    alignItems: "center",
-    marginVertical: 10,
-  },
-  text: {
-    fontWeight: "bold",
-  },
-});
-
-export default CustomButton;
+export default Button;
