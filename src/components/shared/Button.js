@@ -1,46 +1,55 @@
-import React from "react";
-import { TouchableOpacity, Text, StyleSheet } from "react-native";
-import colors from "../../assets/colors";
-import styles from "../../assets/styles";
+import React from 'react';
+import { TouchableOpacity, Text,  View, Image } from 'react-native';
+import icons from '../../assets/icons';
+import styles from '../../assets/styles';
+import colors from '../../assets/colors';
 
-const CustomButton = ({
-    label, 
-  onPress, // Default yellow background
-  borderWidth = 0,
-  borderColor = "#FFC107", // Default yellow border
-  isOutline = false, // To render an outline button
-  style = {},
-}) => {
+const Button = ({ label, onPress, buttonStyle, disabled, showIcon }) => {
   return (
     <TouchableOpacity
       onPress={onPress}
       style={[
         {
-          backgroundColor: isOutline ? "transparent" : colors.primary,
-          borderColor: isOutline ? borderColor : "transparent",
-          borderWidth: isOutline ? borderWidth : 0,
-          borderRadius: 10,
-          paddingVertical: 15,
-           justifyContent : "center" , 
-           alignItems : "center" , 
-           marginVertical : 10 
+          backgroundColor: colors.primary,
+          flexDirection: 'row',
+          alignItems: 'center',
+          justifyContent: 'center',
+          borderRadius: showIcon ? 8 : 25,
+          opacity: disabled ? 0.6 : 1,
         },
-        style,
+        styles.pdh20,
+        styles.mv12,
+        showIcon ? styles.pdv4  : styles.pdv8 ,
+        buttonStyle,
       ]}
+      activeOpacity={0.8}
+      disabled={disabled}
     >
-      <Text
-        style={[
-          styles.fwBold,
-          {
-            color: isOutline ? borderColor : colors.white,
-            fontSize: 16,
-          },
-        ]}
+      <View
+        style={{
+          flexDirection: 'row',
+          alignItems: 'center',
+          justifyContent: showIcon ? 'space-between' : 'center',
+          width: showIcon ? '80%' : '100%',
+          paddingVertical: 6,
+        }}
       >
-      {label}
-      </Text>
+        <Text
+          style={[
+            styles.ts18,
+            styles.fwBold,
+            styles.mr12,
+            { color: colors.white, textAlign: 'center' },
+          ]}
+        >
+          {label}
+        </Text>
+        {showIcon && (
+          <Image source={icons.arrow_right} style={[styles.icon36]} />
+        )}
+      </View>
     </TouchableOpacity>
   );
 };
 
-export default CustomButton;
+export default Button;
