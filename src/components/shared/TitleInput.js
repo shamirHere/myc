@@ -12,16 +12,18 @@ import styles from '../../assets/styles';
 import colors from '../../assets/colors';
 
 const TitleInput = ({
-    title, 
+  title,
   value,
   onChangeText,
   placeholder,
   errorMessage = '',
   showError = false,
-  customStyles ,
   multiline = false,
   keyboardType = 'default',
   secureTextEntry = false,
+  style,
+  inputStyle,
+  maxlength,
 }) => {
   const [isPasswordVisible, setPasswordVisible] = useState(false);
 
@@ -30,8 +32,14 @@ const TitleInput = ({
   };
 
   return (
-    <View style={[{marginBottom: showError ? 25 : styles.mb8, position: 'relative'},customStyles]}>
-        <Text style={[styles.h4,  styles.mb8 , styles.ts15  , {color : colors.black}]}>{title}</Text>
+    <View
+      style={[
+        {marginBottom: showError ? 25 : styles.mb8, position: 'relative'},
+        style,
+      ]}>
+      <Text style={[styles.h4, styles.mb8, styles.ts15, {color: colors.black}]}>
+        {title}
+      </Text>
       <TextInput
         value={value}
         onChangeText={onChangeText}
@@ -39,7 +47,7 @@ const TitleInput = ({
         placeholderTextColor={colors.grey60}
         style={[
           {
-            borderColor: showError ? colors.red : colors.grey80,
+            borderColor: showError ? colors.red : colors.grey200,
             borderWidth: 1,
             borderRadius: 8,
             paddingVertical: 12,
@@ -49,11 +57,12 @@ const TitleInput = ({
             width: '100%',
             paddingRight: secureTextEntry ? 45 : 15, // Add space for the icon if secureTextEntry is true
           },
-          customStyles,
+          inputStyle,
         ]}
         multiline={multiline}
         keyboardType={keyboardType}
         secureTextEntry={secureTextEntry && !isPasswordVisible}
+        maxLength={maxlength}
       />
       {secureTextEntry && (
         <TouchableOpacity
@@ -61,16 +70,14 @@ const TitleInput = ({
             position: 'absolute',
             right: 10,
             transform: [{translateY: -10}], // Center the icon vertically
-            height : 40 , 
-            width : 40, 
-            top : "58%"
+            height: 40,
+            width: 40,
+            top: '58%',
           }}
           onPress={togglePasswordVisibility}>
           <Image
-            source={ isPasswordVisible ? icons.closed_eye : icons.opened_eye}
-            style={[
-              styles.icon36,
-            ]}
+            source={isPasswordVisible ? icons.closed_eye : icons.opened_eye}
+            style={[styles.icon36]}
           />
         </TouchableOpacity>
       )}
@@ -82,6 +89,5 @@ const TitleInput = ({
     </View>
   );
 };
-
 
 export default TitleInput;

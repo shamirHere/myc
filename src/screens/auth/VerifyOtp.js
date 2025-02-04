@@ -14,10 +14,10 @@ const VerifyOtp = ({navigation, route}) => {
       <View style={[{alignItems: 'center'}, styles.mt20]}>
         <Text style={[styles.h1, styles.mb12]}>Verify Code</Text>
         <Text style={[{color: colors.black400}, styles.ts14]}>
-          Please enter the code we just to your email
+          Please enter the code we just to your mobile number
         </Text>
         <Text style={[{color: colors.primary}, styles.ts15]}>
-          mailto:example@gmail.com
+          9477172214
         </Text>
       </View>
       <OTPInput OTPInputStyle={[styles.mt36]} />
@@ -42,7 +42,7 @@ const VerifyOtp = ({navigation, route}) => {
         ]}>
         Resend Code
       </Text>
-      <Button label={'Verify'} buttonStyle={[styles.mt24]}/>
+      <Button label={'Verify'} style={[styles.mt24]} onPress={() => navigation.navigate("Name")}/>
     </SafeAreaView>
   );
 };

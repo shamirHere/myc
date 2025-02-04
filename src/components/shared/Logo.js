@@ -6,11 +6,6 @@ import colors from '../../assets/colors';
 
 const Logo =({image})=>{
     return(
-      
-        // <TouchableOpacity style={[styles.mt24,styles.p20,{alignItems:'center',borderWidth:0.5,borderRadius:50}]}>
-        //     <Image source={icons.google} style={[styles.icon24,{borderRadius:15}]} />
-        // </TouchableOpacity>
-
         <TouchableOpacity
           style={[
             styles.mt24,
@@ -20,9 +15,9 @@ const Logo =({image})=>{
               borderRadius: 50,
               borderColor: colors.grey200,
             },
-            styles.p8,
+            styles.p12,
           ]}>
-          <Image source={icons.google} style={[styles.icon24]} />
+          <Image source={icons.google} style={[styles.icon36]} />
         </TouchableOpacity>
       
     )

@@ -4,7 +4,7 @@ import icons from '../../assets/icons';
 import styles from '../../assets/styles';
 import colors from '../../assets/colors';
 
-const Button = ({ label, onPress, buttonStyle, disabled, showIcon }) => {
+const Button = ({ label, onPress, style, disabled, showIcon }) => {
   return (
     <TouchableOpacity
       onPress={onPress}
@@ -20,7 +20,7 @@ const Button = ({ label, onPress, buttonStyle, disabled, showIcon }) => {
         styles.pdh20,
         styles.mv12,
         showIcon ? styles.pdv4  : styles.pdv8 ,
-        buttonStyle,
+        style,
       ]}
       activeOpacity={0.8}
       disabled={disabled}
