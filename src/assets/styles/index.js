@@ -375,6 +375,36 @@ const styles = StyleSheet.create({
   fonts: {
     FiraSans: 'Fira Sans',
   },
+
+  //changes by dilshad
+
+  //for images
+
+  img: {
+    
+    width: '100%',
+    height: 350,
+    resizeMode: 'contain',
+  },
+
+  //text
+
+  T:{
+    fontSize: 20,
+    color: 'black',
+    fontWeight: 'bold',
+    alignContent: 'center',
+    textAlign: 'center',
+    
+  },
+
+  container: {
+    flex: 1,
+    // justifyContent: 'center',
+    // alignItems: 'center',
+    padding: 16,
+    
+  },
 });
 
 export default styles;
